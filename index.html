@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="ИИ-отдел продаж для Instagram и мессенджеров: отвечает 24/7, квалифицирует лидов, записывает на созвон и передаёт менеджеру." />
+  <title>ИИ-отдел продаж — Reelixy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1020;
+      --card:#101a36cc;
+      --text:#e9ecff;
+      --muted:#b8c0ff;
+      --accent:#7c5cff;
+      --accent2:#19d3ff;
+      --ok:#26d07c;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 20px 80px rgba(0,0,0,.45);
+      --radius:18px;
+      --max: 1040px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(124,92,255,.35), transparent 60%),
+        radial-gradient(900px 700px at 80% 30%, rgba(25,211,255,.22), transparent 55%),
+        radial-gradient(900px 700px at 50% 100%, rgba(38,208,124,.14), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 80px}
+    .top{display:flex; align-items:center; justify-content:space-between; gap:14px}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+    .logo{
+      width:42px;height:42px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 12px 30px rgba(124,92,255,.25);
+    }
+    .brand b{font-size:16px; letter-spacing:.2px}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background:rgba(16,26,54,.55);
+      backdrop-filter: blur(12px);
+      text-decoration:none;
+      font-weight:600;
+      color:var(--text);
+    }
+    .pill small{color:var(--muted); font-weight:600}
+
+    .hero{margin-top:44px; display:grid; grid-template-columns: 1.2fr .8fr; gap:18px; align-items:stretch}
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr; margin-top:26px} }
+
+    h1{font-size:44px; line-height:1.05; margin:0 0 14px}
+    @media (max-width: 520px){ h1{font-size:34px} }
+
+    .lead{font-size:18px; color:var(--muted); line-height:1.55; margin:0 0 18px}
+
+    .ctaRow{display:flex; flex-wrap:wrap; gap:12px; margin:18px 0 10px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:14px 16px; border-radius:14px; border:1px solid var(--border);
+      text-decoration:none; font-weight:700;
+      background:rgba(16,26,54,.55);
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(124,92,255,.95), rgba(25,211,255,.85));
+      border-color: transparent;
+      color:#071025;
+    }
+    .btn.secondary{color:var(--text)}
+
+    .fine{color:rgba(233,236,255,.72); font-size:13px; line-height:1.5}
+
+    .card{
+      border:1px solid var(--border);
+      background:rgba(16,26,54,.55);
+      backdrop-filter: blur(14px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+      overflow:hidden;
+    }
+
+    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:18px}
+    @media (max-width: 900px){ .grid3{grid-template-columns:1fr; } }
+
+    .kpi{padding:14px;border-radius:16px;border:1px solid var(--border); background:rgba(11,16,32,.35)}
+    .kpi b{display:block; font-size:18px}
+    .kpi span{display:block; color:var(--muted); font-size:13px; margin-top:6px}
+
+    h2{margin:42px 0 14px; font-size:26px}
+
+    .steps{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+    @media (max-width: 900px){ .steps{grid-template-columns:1fr;} }
+
+    .step{display:flex; gap:12px}
+    .num{
+      width:36px;height:36px;border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      background:rgba(124,92,255,.18);
+      border:1px solid rgba(124,92,255,.35);
+      font-weight:800;
+      flex:0 0 auto;
+    }
+    .step p{margin:0; color:var(--muted); line-height:1.5}
+    .step b{display:block; margin-bottom:4px; color:var(--text)}
+
+    .faq{display:grid; grid-template-columns:1fr; gap:10px}
+    details{border:1px solid var(--border); border-radius:16px; padding:12px 14px; background:rgba(11,16,32,.30)}
+    summary{cursor:pointer; font-weight:700}
+    details p{margin:10px 0 0; color:var(--muted); line-height:1.6}
+
+    footer{margin-top:44px; color:rgba(233,236,255,.7); font-size:13px}
+    footer a{color:rgba(233,236,255,.85)}
+
+    .tag{display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border-radius:999px; border:1px solid var(--border); background:rgba(11,16,32,.30); color:rgba(233,236,255,.85); font-size:13px; font-weight:700}
+    .dot{width:8px;height:8px;border-radius:99px;background:var(--ok)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="top">
+      <a class="brand" href="#top">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <b>Reelixy</b><br>
+          <span style="font-size:12px;color:rgba(233,236,255,.70)">ИИ‑отдел продаж</span>
+        </div>
+      </a>
+      <a class="pill" href="#contact"><span class="dot" aria-hidden="true"></span> <span>Тест / консультация</span> <small>— быстро</small></a>
+    </div>
+
+    <section class="hero" id="top">
+      <div class="card">
+        <div class="tag"><span class="dot" aria-hidden="true"></span> Отвечает 24/7 • Квалифицирует • Записывает на созвон</div>
+        <h1 style="margin-top:14px">ИИ‑отдел продаж для Instagram и мессенджеров</h1>
+        <p class="lead">
+          Ваш AI‑менеджер принимает входящие заявки, задаёт правильные вопросы, отсекает нецелевых,
+          собирает ТЗ и передаёт менеджеру уже «готового» клиента.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" id="ctaPrimary" href="#contact">Получить тест</a>
+          <a class="btn secondary" href="#how">Как работает</a>
+        </div>
+        <p class="fine">
+          Формат: под ключ (настроим), либо white‑label (под вашим брендом). Начать можно без сложных интеграций.
+        </p>
+
+        <div class="grid3">
+          <div class="kpi">
+            <b>Меньше потерь лидов</b>
+            <span>быстрые ответы + авто‑квалификация</span>
+          </div>
+          <div class="kpi">
+            <b>Больше созвонов</b>
+            <span>AI предлагает время и ведёт до записи</span>
+          </div>
+          <div class="kpi">
+            <b>Контроль</b>
+            <span>режимы: AI / Manager / Mixed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 style="margin:0 0 10px">Что входит</h2>
+        <ul style="margin:0; padding-left:18px; color:var(--muted); line-height:1.7">
+          <li>Подключение каналов (Telegram / WhatsApp / Instagram*)</li>
+          <li>Скрипты продаж и квалификации под вашу нишу</li>
+          <li>Передача диалога менеджеру + резюме лида</li>
+          <li>CRM: лиды, сделки, статусы, аналитика</li>
+          <li>Календарь и запись на созвон (по готовности)</li>
+        </ul>
+        <p class="fine" style="margin-top:12px">*Подключение Instagram/WhatsApp зависит от вашей инфраструктуры и доступа.</p>
+      </div>
+    </section>
+
+    <section id="how">
+      <h2>Как это работает</h2>
+      <div class="steps">
+        <div class="card step">
+          <div class="num">1</div>
+          <div>
+            <b>Лид пишет в директ / мессенджер</b>
+            <p>AI отвечает сразу и ведёт диалог по вашему сценарию.</p>
+          </div>
+        </div>
+        <div class="card step">
+          <div class="num">2</div>
+          <div>
+            <b>Квалификация</b>
+            <p>AI уточняет задачу, бюджет, сроки, контакт, формат работы.</p>
+          </div>
+        </div>
+        <div class="card step">
+          <div class="num">3</div>
+          <div>
+            <b>Передача менеджеру</b>
+            <p>Резюме: боль, что предлагали, возражения, next step. Без лишних «пустых» созвонов.</p>
+          </div>
+        </div>
+        <div class="card step">
+          <div class="num">4</div>
+          <div>
+            <b>Созвон и КП</b>
+            <p>Менеджер подключается в нужный момент и закрывает сделку.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Вопросы (коротко)</h2>
+      <div class="faq">
+        <details>
+          <summary>Можно ли контролировать ответы AI?</summary>
+          <p>Да. Есть режимы AI / Manager / Mixed. Можно включать/выключать AI и задавать правила и запреты в системном промпте.</p>
+        </details>
+        <details>
+          <summary>Это заменит менеджера?</summary>
+          <p>Цель — снять рутину (первичные ответы и квалификацию) и дать менеджеру больше времени на закрытие сделок.</p>
+        </details>
+        <details>
+          <summary>Сколько времени на запуск?</summary>
+          <p>Быстрый тест — за 3–7 дней (1 канал + базовая квалификация). Дальше расширяем каналы, аналитику и интеграции.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Быстрый тест</h2>
+      <div class="card">
+        <p class="lead" style="margin-top:0">
+          Напиши в Telegram слово <b>«ИИ»</b> — и мы зададим 3 вопроса, чтобы понять задачу и предложить формат запуска.
+        </p>
+        <div class="ctaRow">
+          <a class="btn primary" id="tgLink" href="https://t.me/bilousov_roman" target="_blank" rel="noopener">Написать в Telegram</a>
+          <a class="btn secondary" href="mailto:info@reelixy.com">info@reelixy.com</a>
+        </div>
+        <p class="fine">Если хочешь, заменим ссылку на Telegram бота/аккаунт компании и добавим форму заявки.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Reelixy • Киев, Украина • Global delivery</div>
+      <div style="margin-top:8px">
+        <a href="https://reelixy.com" target="_blank" rel="noopener">reelixy.com</a> •
+        <a href="https://www.instagram.com/reelixy_com/" target="_blank" rel="noopener">Instagram</a> •
+        <a href="https://www.linkedin.com/company/reelixy/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
